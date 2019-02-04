@@ -51,7 +51,7 @@ data "vsphere_virtual_machine" "template" {
 # Resource
 ##########################################################
 resource "vsphere_virtual_machine" "vm" {
-  name             = "Node-Name1"
+  name             = "Node2"
   resource_pool_id = "${data.vsphere_resource_pool.pool.id}"
   datastore_id     = "${data.vsphere_datastore.datastore.id}"
 
@@ -77,7 +77,7 @@ clone {
 
   customize {
     linux_options {
-      host_name = "Node-Name1"
+      host_name = "Node2"
       domain    = "local.localdomain"
     }
 
