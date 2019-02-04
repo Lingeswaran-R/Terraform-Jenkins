@@ -1,0 +1,43 @@
+pipeline {
+    agent {
+         node {
+            label 'master'
+          }
+    }
+
+    stages {
+
+        stage('Terraform started') {
+            steps {
+                sh 'echo "Started...!" '
+              }
+           }
+        
+        stage('git clone') {
+            steps {
+                sh 'sudo rm -r *;sudo git clone https://github.com/aleti-pavan/Terraform-Jenkins.git'
+               }
+           }
+        
+  
+        stage('terraform init') {
+            steps {
+                sh '/var/terraform/terraform init ./Terraform-Jenkins'
+              }
+          }
+  
+        stage('terraform plan') {
+            steps {
+                sh 'ls ./jenkins; sudo /home/ec2-user/terraform plan ./Terraform-Jenkins'
+              }
+          }
+        
+        stage('terraform ended') {
+            steps {
+                sh 'echo "Ended....!!"'
+            }
+         }
+
+        
+    }
+}
