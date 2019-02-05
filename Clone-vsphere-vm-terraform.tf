@@ -81,6 +81,14 @@ clone {
       host_name = "Node2"
       domain    = "local.localdomain"
     }
+    
+    network_interface {
+      ipv4_address = "191.168.3.111"
+      ipv4_netmask = "24"
+    }
+
+    ipv4_gateway = "192.168.3.2"
+    
   }
  }
 }
